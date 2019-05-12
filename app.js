@@ -34,11 +34,12 @@ require('./passport/passport')
 app.use(passport.initialize())
 app.use(passport.session())
 
-app.get('/', (req, res) => {
-  res.redirect('/user/login')
+app.get('*', (req, res, next) => {
+  res.locals.user = req.user || ''
+  next()
 })
 
-app.get('/index', policies.isLoggedIn, (req, res) => {
+app.get('/', (req, res, next) => {
   res.render('index')
 })
 

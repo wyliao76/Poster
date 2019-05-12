@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <% include ./partials/head %>
+    <title>Registration</title>
+  </head>
+  <body>
+    <div class="container"></div>
+    <div class="row">
+      <div class="col-md-4">
+        <h1>Registration</h1>
+        <form method="POST" action="">
+          <div id="form-group"><label>Username:</label><input class="form-control" name="username" type="text" value="" /></div>
+          <div id="form-group"><label>Email:</label><input class="form-control" name="email" type="text" value="" /></div>
+          <div id="form-group"><label>Password:</label><input class="form-control" name="password" type="password" /></div>
+          <div id="form-group"><label>Confirm Password :</label><input class="form-control" name="password2" type="password" /></div>
+          <div id="form-group"><label>First Name:</label><input class="form-control" name="firstName" type="text" value="" /></div>
+          <div id="form-group"><label>Last Name:</label><input class="form-control" name="lastName" type="text" value="" /></div><br/><input class="btn btn-primary" type="submit" value="submit" /></form>
+      </div>
+    </div>
+  </body>
+  <% include ./partials/footer %>
+</html>

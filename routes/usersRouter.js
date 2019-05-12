@@ -6,19 +6,17 @@ const passport = require('passport')
 const policies = require('../passport/policies')
 
 router.route('/register')
+.get(usersController.register)
 .post(validator.validate('register'), usersController.register)
 
 router.route('/login')
 .get(usersController.login)
 .post(passport.authenticate('local', {
-  successRedirect: '/index',
+  successRedirect: '/',
   failureRedirect: '/user/login'
 }))
 
 router.route('/logout')
 .get(usersController.logout)
-
-router.route('/get_judging_profiles')
-.post(policies.isLoggedIn, usersController.get_judging_profiles)
 
 module.exports = router

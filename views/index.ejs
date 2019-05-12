@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <% include ./partials/head %>
+    <title>Poster</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <div class="container"><a class="navbar-brand" href="/"><Strong>Poster</Strong></a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div
+        class="collapse navbar-collapse" id="navbar">
+        <div class="navbar-nav"><a class="nav-item nav-link active" href="/"><Strong>Home </Strong><span class="sr-only">(current)</span></a></div>
+        </div>
+      <div class="navbar-nav justify-content-end">
+        <%if (user) { %>
+          <li><a class="nav-item nav-link active" href="/user/logout"><Strong>Log Out</Strong></a></li>
+        <% } else {%>
+          <li><a class="nav-item nav-link active" href="/user/login"><Strong>Login</Strong></a></li>
+          <li><a class="nav-item nav-link active" href="/user/register"><Strong>Sign up</Strong></a></li>
+          <% } %>
+      </div>
+      </div>
+    </nav>
+  </body>
+  <% include ./partials/footer %>
+</html>
