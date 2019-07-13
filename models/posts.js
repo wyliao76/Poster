@@ -11,11 +11,14 @@ let PostSchema = mongoose.Schema(
     title: {
       type: String,
       required: true,
-      max: 100}
-      ,
+      max: 100
+    },
     body: {
       type: String,
       required: true
+    },
+    preview: {
+      type: String,
     },
     createdAt: {
       type: Date,

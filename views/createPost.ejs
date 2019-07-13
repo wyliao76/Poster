@@ -13,7 +13,6 @@
         </div>
       <div class="navbar-nav justify-content-end">
         <%if (user) { %>
-          <li><a class="nav-item nav-link active" href="/posts/createPost"><Strong>createPost</Strong></a></li>
           <li><a class="nav-item nav-link active" href="/user/logout"><Strong>Log Out</Strong></a></li>
         <% } else {%>
           <li><a class="nav-item nav-link active" href="/user/login"><Strong>Login</Strong></a></li>
@@ -22,6 +21,15 @@
       </div>
       </div>
     </nav>
+    <div class="col-md-4">
+      <h1>Create a post</h1>
+      <form method="POST" action="">
+        <div id="form-group"><label>Title:</label><input class="form-control" name="title" type="text" value="" /></div>
+        <div id="form-group"><label>Body:</label><textarea class="form-control" name="body"></textarea></div>
+      </form>
+      <br>
+      <input class="btn btn-primary" type="submit" value="submit" />
+    </div>
   </body>
   <% include ./partials/footer %>
 </html>

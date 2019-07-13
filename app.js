@@ -6,6 +6,7 @@ const MongoStore = require('connect-mongo')(session)
 const path = require('path')
 const config = require('./config')
 const usersRouter = require('./routes/usersRouter')
+const postsRouter = require('./routes/postsRouter')
 const passport = require('passport')
 const policies = require('./passport/policies')
 
@@ -40,9 +41,10 @@ app.get('*', (req, res, next) => {
 })
 
 app.get('/', (req, res, next) => {
-  res.render('index')
+  res.redirect('/posts')
 })
 
+app.use('/posts', postsRouter)
 app.use('/user', usersRouter)
 
 app.use((err, req, res, next) => {

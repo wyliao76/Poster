@@ -3,6 +3,7 @@ const { validationResult } = require('express-validator/check')
 const bcrypt = require('bcryptjs')
 const passport = require('passport')
 
+
 exports.register = async (req, res, next) => {
   if (req.method === 'GET') {
     return res.render('register')
