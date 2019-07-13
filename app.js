@@ -6,6 +6,7 @@ const MongoStore = require('connect-mongo')(session)
 const path = require('path')
 const config = require('./config')
 const usersRouter = require('./routes/usersRouter')
+const postsRouter = require('./routes/postsRouter')
 const passport = require('passport')
 const policies = require('./passport/policies')
 
@@ -34,14 +35,16 @@ require('./passport/passport')
 app.use(passport.initialize())
 app.use(passport.session())
 
-app.get('/', (req, res) => {
-  res.redirect('/user/login')
+app.get('*', (req, res, next) => {
+  res.locals.user = req.user || ''
+  next()
 })
 
-app.get('/index', policies.isLoggedIn, (req, res) => {
-  res.render('index')
+app.get('/', (req, res, next) => {
+  res.redirect('/posts')
 })
 
+app.use('/posts', postsRouter)
 app.use('/user', usersRouter)
 
 app.use((err, req, res, next) => {
